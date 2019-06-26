@@ -44,6 +44,9 @@ public class UserDataGateway {
         return list.get(0);
     }
 
+    public List<UserRecord> list() {
+        return jdbcTemplate.query("select id, name from users", rowMapper);
+    }
 
     private RowMapper<UserRecord> rowMapper =
         (rs, num) -> new UserRecord(rs.getLong("id"), rs.getString("name"));
