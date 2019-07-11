@@ -2,12 +2,13 @@ applications:
 - name: tracker-allocations
   path: ./applications/allocations-server/build/libs/allocations-server.jar
   routes:
-  - route: allocations-pal-{UNIQUE_IDENTIFIER}.apps.chicken.pal.pivotal.io
+  - route: allocations-pal-answer456.cfapps.io
   memory: 1G
   instances: 1
   env:
     JBP_CONFIG_OPEN_JDK_JRE: '{ jre: { version: 11.+ } }'
     GRANT_TYPE: client_credentials
+    MANAGEMENT_ENDPOINTS_WEB_EXPOSURE_INCLUDE: '*'
   services:
   - tracker-allocations-database
   - tracker-service-registry
